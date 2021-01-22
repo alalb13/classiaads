@@ -9,6 +9,8 @@ class CreateAnnouncementsTable extends Migration
     public function up()
     {
         Schema::create('announcements', function (Blueprint $table) {
+
+
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('brand');
@@ -22,5 +24,7 @@ class CreateAnnouncementsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('announcements');
+
+
     }
 }

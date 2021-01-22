@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Announcement;
 use Illuminate\Http\Request;
+use App\Http\Requests\AnnouncementRequest;
 
 class AnnouncementsController extends Controller
 {
@@ -16,7 +17,7 @@ class AnnouncementsController extends Controller
         return view ('announcements/new');
     }
 
-    public function postAnnouncement(Request $req)
+    public function postAnnouncement(AnnouncementRequest $req)
     {
 
 
@@ -43,7 +44,7 @@ class AnnouncementsController extends Controller
     }
 
 
-    public function updateAnnouncement(Request $req, $id)
+    public function updateAnnouncement(AnnouncementRequest $req, $id)
     {
         $announcement = Announcement::find($id);
 
@@ -51,12 +52,12 @@ class AnnouncementsController extends Controller
         $imageName = time(). '.' .$image->extension();
         $image->move(public_path('announcement/images'), $imageName);
 
-        $announcement = new Announcement;
         $announcement->title = $req->input('title');
         $announcement->brand = $req->input('brand');
         $announcement->price = $req->input('price');
         $announcement->description = $req->input('description');
-        $announcement->img = $req->input('file');
+        $announcement->file = $imageName;
+        $announcement->save();
 
         $announcement->update($req->input());
         return redirect()->route('editad', ['id' =>$announcement->id]);
