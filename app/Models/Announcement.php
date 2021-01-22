@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\ImageAd;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Announcement extends Model
 {
-    protected $fillable = ['title', 'brand', 'price','description'];
+    protected $fillable = ['announcements'];
+
 }

@@ -14,6 +14,7 @@ class CreateAnnouncementsTable extends Migration
             $table->string('brand');
             $table->text('description');
             $table->decimal('price', 8, 2)->nullable();
+            $table->string('file')->nullable();
             $table->timestamps();
         });
     }

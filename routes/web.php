@@ -30,6 +30,7 @@ Route::get('/new/ad', [AnnouncementsController::class, 'newAnnouncement'])->name
 Route::post('/new/ad', [AnnouncementsController::class, 'postAnnouncement'])->name('postad');
 Route::get('/edit/{id}', [AnnouncementsController::class, 'editAnnouncement'])->name('editad');
 Route::post('/update/{id}', [AnnouncementsController::class, 'updateAnnouncement'])->name('updatead');
+Route::get('/delete/{id}', [AnnouncementsController::class, 'deleteAnnouncement'])->name('deletead');
 // end announcement
 
 

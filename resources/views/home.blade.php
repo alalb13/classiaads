@@ -5,8 +5,8 @@
         <div class="row justify-content-center">
             @foreach ($announcements as $announcement)
             <div class="col-auto py-3">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card align-items-center" style="width: 15rem;">
+                    <img class="img-fluid w-75 card-img-top text-center" src="{{ asset('announcement/images')}}/{{$announcement->file}}" alt="Image of {{$announcement->title}}">
                     <div class="card-body">
                         <h5 class="card-title">{{$announcement->title}}</h5>
                         <h6 class="card-title"><strong>Brand</strong> {{$announcement->brand}}</h6>
