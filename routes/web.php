@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AnnouncementsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +16,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+
+// Announcement
+Route::get('/home', [DashboardController::class, 'welcome'])->name('dashboard');
 Auth::routes();
+Route::get('/new/ad', [AnnouncementsController::class, 'newAnnouncement'])->name('newad');
+Route::post('/new/ad', [AnnouncementsController::class, 'postAnnouncement'])->name('postad');
+Route::get('/edit/{id}', [AnnouncementsController::class, 'editAnnouncement'])->name('editad');
+Route::post('/update/{id}', [AnnouncementsController::class, 'updateAnnouncement'])->name('updatead');
+// end announcement
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
+
+
+
