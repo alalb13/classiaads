@@ -18,8 +18,7 @@ class AnnouncementsController extends Controller
     public function newAnnouncement()
     {
 
-        $categories = Category::all();
-        return view ('announcements/new', compact('categories'));
+        return view ('announcements/new');
     }
 
     public function postAnnouncement(AnnouncementRequest $req)
@@ -60,6 +59,7 @@ class AnnouncementsController extends Controller
         $imageName = time(). '.' .$image->extension();
         $image->move(public_path('announcement/images'), $imageName);
 
+        $announcement->user_id = Auth::id();
         $announcement->title = $req->input('title');
         $announcement->brand = $req->input('brand');
         $announcement->price = $req->input('price');
@@ -70,6 +70,10 @@ class AnnouncementsController extends Controller
 
         $announcement->update($req->input());
         return redirect()->route('home')->with('announcement.update.successfully', 'Ad Updates Success');
+
+        if($validator->fails()) {
+            return Redirect::back()->withErrors($validator);
+        }
     }
 
     public function deleteAnnouncement($id)

@@ -1,6 +1,15 @@
     @extends('layouts.app')
     @section('content')
-
+        @if($errors->any())
+            <div class="container mt-5 pt-5">
+                <div class="row justify-content-center ">
+                    <div class="co-12">
+                        <h2>{{ implode('', $errors->all(':message')) }}</h2>
+                    </div>
+                </div>
+            </div>
+        @endif
+        <div class="container mt-5">
             <form action="{{route('updatead',[ "id" =>$announcement->id])}}" method="POST" enctype="multipart/form-data">
                 @csrf
 
@@ -42,18 +51,19 @@
                 </div>
         </div>
 
-        <script>
-            function previewFile(input){
-                var file=$("input[type=file]").get(0).files[0];
-                if(file)
-                {
-                    var reader = new FileReader();
-                    reader.onload = function(){
-                        $('#previewImg').attr("src", reader.result);
-                    }
-                    reader.readAsDataURL(file);
+        </div>
+    <script>
+        function previewFile(input){
+            var file=$("input[type=file]").get(0).files[0];
+            if(file)
+            {
+                var reader = new FileReader();
+                reader.onload = function(){
+                    $('#previewImg').attr("src", reader.result);
                 }
+                reader.readAsDataURL(file);
             }
-        </script>
+        }
+    </script>
 
     @endsection

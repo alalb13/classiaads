@@ -2,12 +2,12 @@
 
     @section('content')
 
-        @if (session('announcement.created.successfully'))
+        @if (session('edit.not.valit'))
         <div class="container">
             <div class="row  mt-5">
                 <div class="col-12">
-                    <div class="alert alert-success">
-                        Annuncio creato correttamente
+                    <div class="alert alert-danger">
+                        Annuncio non modificato (Il formato del file deve essere jpg/png)
                     </div>
                 </div>
             </div>
