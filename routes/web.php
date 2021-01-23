@@ -24,14 +24,16 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 // Announcement
-Route::get('/home', [DashboardController::class, 'welcome'])->name('dashboard');
+
 Auth::routes();
+Route::get('/dashboard', [DashboardController::class, 'welcome'])->name('dashboard');
 Route::get('/new/ad', [AnnouncementsController::class, 'newAnnouncement'])->name('newad');
 Route::post('/new/ad', [AnnouncementsController::class, 'postAnnouncement'])->name('postad');
 Route::get('/edit/{id}', [AnnouncementsController::class, 'editAnnouncement'])->name('editad');
 Route::post('/update/{id}', [AnnouncementsController::class, 'updateAnnouncement'])->name('updatead');
 Route::get('/ad/{id}', [AnnouncementsController::class, 'singleAd'])->name('singlead');
 Route::get('/delete/{id}', [AnnouncementsController::class, 'deleteAnnouncement'])->name('deletead');
+Route::get('/deleteadfromdashboard/{id}', [DashboardController::class, 'deleteAnnouncementDashboard'])->name('deleteadfromdashboard');
 // end announcement
 
 

@@ -19,12 +19,15 @@
             <div class="col-3">
                 <p>{{$announcement->description}}</p>
             </div>
+            @if(optional(Auth::user())->id === $announcement->user['id'])
             <div class="col-6 text-center mt-5">
                 <a href="{{route('editad', ['id' =>$announcement->id])}}" class="btn btn-warning lead">Edit</a>
             </div>
             <div class="col-6 text-center mt-5">
                 <a href="{{route('deletead', ['id' =>$announcement->id])}}" class="btn btn-danger lead">Delete</a>
             </div>
+        @endif
+
         </div>
     </div>
 

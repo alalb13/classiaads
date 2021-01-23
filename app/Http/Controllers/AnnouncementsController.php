@@ -39,7 +39,7 @@ class AnnouncementsController extends Controller
         $announcement->file = $imageName;
         $announcement->save();
 
-        return redirect()->route ('home')->with('announcement.created.successfully' ,'announcement created success');
+        return redirect()->route ('dashboard')->with('announcement.created.successfully' ,'announcement created success');
         // return redirect()->route ('editad', ['id'  =>$announcement->id])->with('announcement.created.successfully' ,'announcement created success');
     }
 
@@ -69,7 +69,7 @@ class AnnouncementsController extends Controller
         $announcement->save();
 
         $announcement->update($req->input());
-        return redirect()->route('home')->with('announcement.update.successfully', 'Ad Updates Success');
+        return redirect()->route('dashboard')->with('announcement.update.successfully', 'Ad Updates Success');
 
         if($validator->fails()) {
             return Redirect::back()->withErrors($validator);
