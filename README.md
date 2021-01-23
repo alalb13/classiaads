@@ -11,7 +11,7 @@ I hope it will be useful.<br>
 
 Created by Alessandro Albergo<br>
 
-Installation <br>
+## Installation <br>
 
 copy .env.example <br>
 Paste env.example as .env <br>
