@@ -13,16 +13,16 @@ Created by Alessandro Albergo
 
 Installation 
 
-copy .env.example
-Paste env.example as .env
-set your DB on .env with user and password
-npm install
-npm run dev
-npm run prod
-php artisan migrate
-php artisan serve
+copy .env.example <br>
+Paste env.example as .env <br>
+set your DB on .env with user and password <br>
+npm install <br>
+npm run dev <br>
+npm run prod <br>
+php artisan migrate <br>
+php artisan serve <br>
 
-enjoy!
+enjoy! <br>
 
 ## License
 
