@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
 use App\Http\Requests\AnnouncementRequest;
@@ -30,10 +31,13 @@ class AnnouncementsController extends Controller
         $announcement->brand = $req->input('brand');
         $announcement->price = $req->input('price');
         $announcement->description = $req->input('description');
+        // $announcement->category_id = $req->input('category');
+        $announcement->category_id = $req->input('category_id');
         $announcement->file = $imageName;
         $announcement->save();
 
-        return redirect()->route ('editad', ['id'  =>$announcement->id])->with('announcement.created.successfully' ,'announcement created success');
+        return redirect()->route ('home')->with('announcement.created.successfully' ,'announcement created success');
+        // return redirect()->route ('editad', ['id'  =>$announcement->id])->with('announcement.created.successfully' ,'announcement created success');
     }
 
 
@@ -56,17 +60,25 @@ class AnnouncementsController extends Controller
         $announcement->brand = $req->input('brand');
         $announcement->price = $req->input('price');
         $announcement->description = $req->input('description');
+        $announcement->category_id = $req->input('category_id');
         $announcement->file = $imageName;
         $announcement->save();
 
         $announcement->update($req->input());
-        return redirect()->route('editad', ['id' =>$announcement->id]);
+        return redirect()->route('home')->with('announcement.update.successfully', 'Ad Updates Success');
     }
 
-    public function destroy($announcement_)
+    public function deleteAnnouncement($announcement)
     {
-        Announcement::where('id', $announcement_id)->delete();
+        Announcement::where('id', $announcement)->delete();
         return redirect()->route('home')->with('deleted.announcement.succes', 'deteted announcement successfully');
+    }
+
+    public function singleAd($announcement){
+
+        $announcement = Announcement::find($announcement);
+        return view ('announcements.single', compact('announcement'));
+
     }
 
 }
