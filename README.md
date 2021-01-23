@@ -17,7 +17,7 @@ www.alessandroalbergo.it <br>
 
 ## Installation <br>
 
-install laravel -> https://laravel.com/
+Laravel -> https://laravel.com/ <br>
 copy .env.example <br>
 Paste env.example as .env <br>
 set your DB on .env with user and password <br>
