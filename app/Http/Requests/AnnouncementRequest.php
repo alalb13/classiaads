@@ -16,7 +16,9 @@ class AnnouncementRequest extends FormRequest
     {
         return
         ['title'=>'required|max:120',
-        'description'=>'required|max:500'
+        'description'=>'required|max:500',
+        'brand'=>'max:50',
+        'file' => 'mimes:jpeg,png|max:1024',
         ];
     }
 }
