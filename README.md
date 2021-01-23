@@ -11,6 +11,19 @@ I hope it will be useful.
 
 Created by Alessandro Albergo
 
+Installation 
+
+copy .env.example
+Paste env.example as .env
+set your DB on .env with user and password
+npm install
+npm run dev
+npm run prod
+php artisan migrate
+php artisan serve
+
+enjoy!
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT)
