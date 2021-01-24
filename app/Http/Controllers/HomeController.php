@@ -15,4 +15,11 @@ class HomeController extends Controller
 
         return view('home', compact('announcements'));
     }
+
+    public function singleAd($id){
+
+        $announcement = Announcement::find($id);
+        return view ('announcements.single', compact('announcement'));
+
+    }
 }

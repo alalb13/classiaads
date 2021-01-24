@@ -82,11 +82,4 @@ class AnnouncementsController extends Controller
         return redirect()->route('home')->with('deleted.announcement.succes', 'deteted announcement successfully');
     }
 
-    public function singleAd($id){
-
-        $announcement = Announcement::find($id);
-        return view ('announcements.single', compact('announcement'));
-
-    }
-
 }

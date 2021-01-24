@@ -31,7 +31,7 @@ Route::get('/new/ad', [AnnouncementsController::class, 'newAnnouncement'])->name
 Route::post('/new/ad', [AnnouncementsController::class, 'postAnnouncement'])->name('postad');
 Route::get('/edit/{id}', [AnnouncementsController::class, 'editAnnouncement'])->name('editad');
 Route::post('/update/{id}', [AnnouncementsController::class, 'updateAnnouncement'])->name('updatead');
-Route::get('/ad/{id}', [AnnouncementsController::class, 'singleAd'])->name('singlead');
+Route::get('/ad/{id}', [HomeController::class, 'singleAd'])->name('singlead');
 Route::get('/delete/{id}', [AnnouncementsController::class, 'deleteAnnouncement'])->name('deletead');
 Route::get('/deleteadfromdashboard/{id}', [DashboardController::class, 'deleteAnnouncementDashboard'])->name('deleteadfromdashboard');
 // end announcement
