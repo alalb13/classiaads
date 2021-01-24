@@ -46,7 +46,7 @@ class AnnouncementsController extends Controller
 
     public function editAnnouncement($id){
 
-        $announcement = Announcement::find($id);
+        $announcement->user_id = Auth::id();
         return view('announcements/edit', compact('announcement'));
     }
 
